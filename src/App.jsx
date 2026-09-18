@@ -533,20 +533,20 @@ function Contact() {
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="tel:+917639814949"
+            href="tel:+919751051499"
             className="inline-flex min-w-[200px] justify-center rounded-full bg-cream px-8 py-4 text-sm font-semibold text-maroon-deep transition hover:bg-white"
           >
             Call to book
           </a>
           <a
-            href="https://wa.me/917639814949"
+            href="https://wa.me/919751051499"
             className="inline-flex min-w-[200px] justify-center rounded-full border border-cream/30 px-8 py-4 text-sm font-semibold text-cream transition hover:bg-cream/10"
           >
             WhatsApp us
           </a>
         </div>
         <p className="mt-8 text-sm text-cream/50">
-          WhatsApp &amp; call: +91 76398 14949
+          WhatsApp &amp; call: +91 97510 51499
         </p>
       </div>
     </section>
