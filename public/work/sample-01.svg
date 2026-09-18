@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" fill="#f0ebe3"/>
+  <rect x="40" y="40" width="720" height="920" rx="12" fill="#6b1e2e"/>
+  <rect x="40" y="40" width="140" height="920" fill="#4a1220"/>
+  <rect x="180" y="40" width="580" height="80" fill="#c9a962" opacity="0.85"/>
+  <g opacity="0.15" stroke="#faf7f2" stroke-width="2">
+    <line x1="220" y1="180" x2="720" y2="180"/><line x1="200" y1="260" x2="700" y2="260"/>
+    <line x1="210" y1="340" x2="710" y2="340"/><line x1="200" y1="420" x2="690" y2="420"/>
+    <line x1="220" y1="500" x2="720" y2="500"/><line x1="210" y1="580" x2="700" y2="580"/>
+  </g>
+  <text x="400" y="920" text-anchor="middle" fill="#e8dcc4" font-family="Georgia,serif" font-size="28">Replace with your photo</text>
+  <text x="400" y="960" text-anchor="middle" fill="#c9a962" font-family="system-ui" font-size="18">Pattu finish</text>
+</svg>

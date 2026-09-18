@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="none">
+  <rect width="800" height="800" fill="#f0ebe3"/>
+  <rect x="100" y="150" width="600" height="450" fill="#fff" stroke="#c9a962" stroke-width="3"/>
+  <rect x="130" y="180" width="540" height="380" fill="#6b1e2e" opacity="0.85"/>
+  <rect x="130" y="180" width="100" height="380" fill="#4a1220"/>
+  <text x="400" y="680" text-anchor="middle" fill="#6b1e2e" font-family="Georgia,serif" font-size="26">Bridal / tissue wrap</text>
+  <text x="400" y="720" text-anchor="middle" fill="#5c534f" font-size="16">Upload your photo</text>
+</svg>
