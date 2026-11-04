@@ -10,7 +10,7 @@ export const CONTACT = {
 }
 
 /** Prefilled text when opening WhatsApp from the site */
-export const WHATSAPP_DEFAULT_MESSAGE = 'Hi Rish, Happy to connect with you'
+export const WHATSAPP_DEFAULT_MESSAGE = 'Hi SR Saree Dresser, Happy to connect with you'
 
 export function whatsappDmUrl(text) {
   const base = `https://wa.me/${CONTACT.whatsapp}`

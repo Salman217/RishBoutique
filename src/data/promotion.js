@@ -1,9 +1,11 @@
+import { BRAND } from './brand'
+
 /** Diwali promotion — update dates or set active: false when the offer ends */
 
 export const ACTIVE_PROMOTION = {
   active: true,
   name: 'Diwali Offer',
-  tagline: 'Wear elegance. Feel special.',
+  tagline: BRAND.tagline,
   single: { label: '1 saree', priceInr: 150 },
   bundle: { label: '5 sarees', priceInr: 700 },
   validDates: 'November 5, 6 & 7',

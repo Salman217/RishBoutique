@@ -1,4 +1,4 @@
-# Rish Boutique — Landing Page
+# SR Saree Dresser — Landing Page
 
 Premium landing page for saree ironing and finishing (branded cotton, pattu, silk blends).
 

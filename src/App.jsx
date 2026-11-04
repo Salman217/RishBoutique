@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { BrandLogo } from './components/BrandLogo'
 import { DiwaliPromoSection, PromoTopBanner } from './components/DiwaliPromo'
 import { HeroWorkSlider } from './components/HeroWorkSlider'
 import { WorkGallery } from './components/WorkGallery'
 import { CONTACT, WHATSAPP_DEFAULT_MESSAGE, whatsappDmUrl } from './data/contact'
+import { BRAND } from './data/brand'
 import { ACTIVE_PROMOTION } from './data/promotion'
 
 const PROCESS_STEPS = [
@@ -117,9 +119,7 @@ function Header({ menuOpen, setMenuOpen }) {
   return (
     <header className="border-b border-ink/5 bg-cream/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#" className="font-display text-2xl font-semibold tracking-tight text-ink md:text-3xl">
-          Rish <span className="text-maroon">Boutique</span>
-        </a>
+        <BrandLogo />
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <a
@@ -393,7 +393,7 @@ function WhyUs() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Why Rish Boutique</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Why {BRAND.fullName}</p>
             <h2 className="mt-3 font-display text-4xl font-semibold text-ink md:text-5xl">
               Finishing that works
               <br />
@@ -544,9 +544,7 @@ function Footer() {
   return (
     <footer className="border-t border-ink/5 bg-cream py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 md:flex-row md:px-8">
-        <p className="font-display text-xl font-semibold text-ink">
-          Rish <span className="text-maroon">Boutique</span>
-        </p>
+        <BrandLogo compact />
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
           <p className="text-center text-sm text-ink-muted">
             Premium ironing & finishing · Branded cotton · Pattu sarees
@@ -561,7 +559,7 @@ function Footer() {
             WhatsApp
           </a>
         </div>
-        <p className="text-xs text-ink-muted">© {new Date().getFullYear()} Rish Boutique</p>
+        <p className="text-xs text-ink-muted">© {new Date().getFullYear()} {BRAND.fullName}</p>
       </div>
     </footer>
   )

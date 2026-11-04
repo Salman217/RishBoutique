@@ -149,7 +149,7 @@ export function WorkGallery() {
               our customers trust
             </h2>
             <p className="mt-4 text-ink-muted">
-              Real ironing and wrapping from Rish Boutique—pattu borders, cotton pleats, and
+              Real ironing and wrapping from SR Saree Dresser—pattu borders, cotton pleats, and
               bridal-ready presentation. Tap any photo to view larger.
             </p>
           </div>

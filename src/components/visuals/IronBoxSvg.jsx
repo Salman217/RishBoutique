@@ -27,7 +27,7 @@ export function IronBoxSvg({ className = '', steam = false }) {
       <path d="M102 60h14v4H102z" fill="#1a1412" />
       <circle cx="14" cy="58" r="5" fill="#c9a962" />
       <text x="60" y="72" textAnchor="middle" fill="#e8dcc4" fontSize="7" fontFamily="system-ui">
-        RISH
+        SR
       </text>
     </svg>
   )

@@ -1,5 +1,5 @@
 /**
- * Rish Boutique work photos (public/work/rish-work-XX.png)
+ * SR Saree Dresser work photos (public/work/rish-work-XX.png)
  */
 
 export const GALLERY_TAGS = ['All', 'Pattu', 'Cotton', 'Bridal', 'Designer']
@@ -95,7 +95,7 @@ const entries = [
     tag: 'Designer',
   },
   {
-    caption: 'Signature Rish fold — pallu aligned, customer-ready cover',
+    caption: 'Signature SR fold — pallu aligned, customer-ready cover',
     tag: 'Pattu',
   },
   {
