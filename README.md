@@ -15,7 +15,7 @@ Open the URL shown in the terminal (usually `http://localhost:5173`).
 
 ## Customize
 
-- **Phone / WhatsApp**: edit the `tel:` and `wa.me` links in `src/App.jsx` (Contact section).
+- **WhatsApp**: edit `whatsapp` and `phoneDisplay` in `src/data/contact.js`.
 - **Copy & process steps**: edit arrays at the top of `src/App.jsx`.
 - **Work photos**: add JPG/PNG files to `public/work/`, then register them in `src/data/gallery.js` (see `public/work/README.txt`).
 - **Colors**: tweak `src/index.css` `@theme` variables.

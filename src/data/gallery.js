@@ -98,6 +98,34 @@ const entries = [
     caption: 'Signature Rish fold — pallu aligned, customer-ready cover',
     tag: 'Pattu',
   },
+  {
+    caption: 'Mustard yellow saree — crisp fold, sealed cover ready for pickup',
+    tag: 'Cotton',
+  },
+  {
+    caption: 'Teal pattu — gold zari circles, pleats set, tassels protected',
+    tag: 'Pattu',
+  },
+  {
+    caption: 'Pink & gold silk — boutique wrap, border displayed clean',
+    tag: 'Bridal',
+  },
+  {
+    caption: 'Lavender zari saree — silver floral body, neat plastic-safe finish',
+    tag: 'Pattu',
+  },
+  {
+    caption: 'Royal blue & magenta border — gold butta rows, event-ready pack',
+    tag: 'Pattu',
+  },
+  {
+    caption: 'Maroon gold-border saree — sharp fan pleats, zari grid aligned',
+    tag: 'Bridal',
+  },
+  {
+    caption: 'Cream floral saree — gentle press, covered for delivery',
+    tag: 'Designer',
+  },
 ]
 
 export const workGallery = entries.map((item, index) => ({

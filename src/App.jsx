@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { MobileScrollStrip } from './components/MobileScrollStrip'
-import { ScrollVisualLayer } from './components/ScrollVisualLayer'
+import { DiwaliPromoSection, PromoTopBanner } from './components/DiwaliPromo'
+import { HeroWorkSlider } from './components/HeroWorkSlider'
 import { WorkGallery } from './components/WorkGallery'
-import { scrollJourneyPhotos } from './data/gallery'
-import { useScrollProgress } from './hooks/useScrollProgress'
+import { CONTACT, WHATSAPP_DEFAULT_MESSAGE, whatsappDmUrl } from './data/contact'
+import { ACTIVE_PROMOTION } from './data/promotion'
 
 const PROCESS_STEPS = [
   {
@@ -90,7 +90,7 @@ const FAQ = [
   },
   {
     q: 'How do I book?',
-    a: 'Message or call us with fabric type and when you need it. We confirm price and pickup time before work begins.',
+    a: 'Message us on WhatsApp with fabric type and when you need it. We confirm price and pickup time before work begins.',
   },
 ]
 
@@ -105,6 +105,7 @@ const TRUST_ITEMS = [
 
 function Header({ menuOpen, setMenuOpen }) {
   const links = [
+    ...(ACTIVE_PROMOTION.active ? [{ href: '#promo', label: 'Diwali offer' }] : []),
     { href: '#process', label: 'Our process' },
     { href: '#gallery', label: 'Our work' },
     { href: '#services', label: 'Services' },
@@ -114,7 +115,7 @@ function Header({ menuOpen, setMenuOpen }) {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-ink/5 bg-cream/90 backdrop-blur-md">
+    <header className="border-b border-ink/5 bg-cream/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
         <a href="#" className="font-display text-2xl font-semibold tracking-tight text-ink md:text-3xl">
           Rish <span className="text-maroon">Boutique</span>
@@ -129,12 +130,6 @@ function Header({ menuOpen, setMenuOpen }) {
               {l.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="rounded-full bg-maroon px-5 py-2.5 text-sm font-semibold text-cream transition hover:bg-maroon-deep"
-          >
-            Book ironing
-          </a>
         </nav>
         <button
           type="button"
@@ -170,7 +165,7 @@ function Header({ menuOpen, setMenuOpen }) {
 
 function Hero() {
   return (
-    <section className="hero-gradient saree-pattern relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+    <section className="hero-gradient saree-pattern relative overflow-hidden pt-8 pb-16 md:pt-12 md:pb-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2 md:px-8">
         <div className="animate-fade-up">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-maroon">
@@ -189,10 +184,12 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="#contact"
+              href={whatsappDmUrl(WHATSAPP_DEFAULT_MESSAGE)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex rounded-full bg-maroon px-7 py-3.5 text-sm font-semibold text-cream shadow-lg shadow-maroon/20 transition hover:bg-maroon-deep"
             >
-              Book your saree
+              Message on WhatsApp
             </a>
             <a
               href="#process"
@@ -202,22 +199,9 @@ function Hero() {
             </a>
           </div>
         </div>
-        <div className="relative hidden md:block">
-          <a
-            href="#gallery"
-            className="group relative block aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-ink/10"
-          >
-            <img
-              src={scrollJourneyPhotos.hero}
-              alt="Rish Boutique finished pattu saree — neat pleats and zari border"
-              className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-            <p className="absolute right-0 bottom-0 left-0 p-6 font-display text-2xl text-cream">
-              Real finishes from our studio
-            </p>
-          </a>
-          <div className="absolute -bottom-6 -left-6 rounded-xl border border-gold/30 bg-white px-5 py-4 shadow-lg">
+        <div className="relative mx-auto w-full max-w-md md:max-w-none">
+          <HeroWorkSlider />
+          <div className="absolute -bottom-6 -left-6 z-10 rounded-xl border border-gold/30 bg-white px-5 py-4 shadow-lg">
             <p className="text-xs font-semibold uppercase tracking-wider text-maroon">Our promise</p>
             <p className="font-display text-xl text-ink">No shine. No scorch. Just crisp.</p>
           </div>
@@ -517,6 +501,14 @@ function FAQSection() {
   )
 }
 
+function WhatsAppIcon({ className = '' }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  )
+}
+
 function Contact() {
   return (
     <section id="contact" className="bg-maroon-deep py-20 text-cream md:py-28">
@@ -531,23 +523,18 @@ function Contact() {
           Share your fabric type—branded cotton, pattu, or blend—and when you need it back. We
           confirm timing and price before we start.
         </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-10 flex justify-center">
           <a
-            href="tel:+919751051499"
-            className="inline-flex min-w-[200px] justify-center rounded-full bg-cream px-8 py-4 text-sm font-semibold text-maroon-deep transition hover:bg-white"
+            href={whatsappDmUrl(WHATSAPP_DEFAULT_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-w-[260px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-10 py-4 text-base font-semibold text-white shadow-lg transition hover:bg-[#20bd5a]"
           >
-            Call to book
-          </a>
-          <a
-            href="https://wa.me/919751051499"
-            className="inline-flex min-w-[200px] justify-center rounded-full border border-cream/30 px-8 py-4 text-sm font-semibold text-cream transition hover:bg-cream/10"
-          >
-            WhatsApp us
+            <WhatsAppIcon className="h-6 w-6" />
+            Send a message on WhatsApp
           </a>
         </div>
-        <p className="mt-8 text-sm text-cream/50">
-          WhatsApp &amp; call: +91 97510 51499
-        </p>
+        <p className="mt-8 text-sm text-cream/50">WhatsApp: {CONTACT.phoneDisplay}</p>
       </div>
     </section>
   )
@@ -560,9 +547,20 @@ function Footer() {
         <p className="font-display text-xl font-semibold text-ink">
           Rish <span className="text-maroon">Boutique</span>
         </p>
-        <p className="text-center text-sm text-ink-muted">
-          Premium ironing & finishing · Branded cotton · Pattu sarees
-        </p>
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+          <p className="text-center text-sm text-ink-muted">
+            Premium ironing & finishing · Branded cotton · Pattu sarees
+          </p>
+          <a
+            href={whatsappDmUrl(WHATSAPP_DEFAULT_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-maroon hover:text-maroon-deep"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+            WhatsApp
+          </a>
+        </div>
         <p className="text-xs text-ink-muted">© {new Date().getFullYear()} Rish Boutique</p>
       </div>
     </footer>
@@ -571,8 +569,6 @@ function Footer() {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const scrollProgress = useScrollProgress()
-
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => {
@@ -582,11 +578,17 @@ export default function App() {
 
   return (
     <>
-      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <ScrollVisualLayer progress={scrollProgress} />
-      <MobileScrollStrip progress={scrollProgress} />
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <PromoTopBanner />
+        <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      </div>
+      <div
+        className={ACTIVE_PROMOTION.active ? 'h-[10.25rem] md:h-[9.75rem]' : 'h-[4.25rem] md:h-[4.75rem]'}
+        aria-hidden
+      />
       <main className="scroll-journey-main">
         <Hero />
+        <DiwaliPromoSection />
         <Stats />
         <Marquee />
         <Process />
